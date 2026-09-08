@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Health &amp; Body Dynamics — Personal Training, Mobility &amp; Supplements</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101208;
+    --ink-soft:#191c11;
+    --paper:#EFEEE4;
+    --paper-dim:#d9d8cc;
+    --lime:#C4E23B;
+    --lime-dim:#93a92e;
+    --gold:#D9A536;
+    --steel:#6b6f5c;
+    --line: rgba(239,238,228,0.14);
+    --max: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--paper);
+    font-family:'Work Sans', sans-serif;
+    font-weight:400;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.disp{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:0.95;
+    margin:0;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:var(--max); margin:0 auto; padding:0 28px;}
+  .rule{height:1px; background:var(--line); border:0; margin:0;}
+
+  /* ---------- NAV ---------- */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:rgba(16,18,8,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:var(--max); margin:0 auto;
+  }
+  .brand{display:flex; align-items:center; gap:12px;}
+  .brand .disp{font-size:20px; letter-spacing:0.03em;}
+  .brand span{color:var(--lime);}
+  .brand-mark{ line-height:0; }
+  .brand-mark img{
+    height:44px; width:auto; display:block;
+    filter:drop-shadow(0 0 1px rgba(239,238,228,0.9)) drop-shadow(0 0 6px rgba(239,238,228,0.35));
+  }
+  nav.links{display:flex; align-items:center; gap:26px; font-size:14px;}
+  nav.links a{text-decoration:none; color:var(--paper-dim); border-bottom:1px solid transparent; padding-bottom:2px; transition:color .15s, border-color .15s;}
+  nav.links a:hover{color:var(--lime); border-color:var(--lime);}
+  .nav-item{position:relative;}
+  .nav-item > .nav-caret{background:none; border:0; font:inherit; color:var(--paper-dim); cursor:pointer; padding-bottom:2px; display:inline-flex; align-items:center;}
+  .nav-item > .nav-caret:hover{color:var(--lime);}
+  .nav-item > .nav-caret::after{content:"›"; display:inline-block; transform:rotate(90deg); margin-left:5px; font-size:12px; position:relative; top:-1px; transition:transform .2s;}
+  .dropdown{
+    display:none; position:absolute; top:100%; left:0; margin-top:14px;
+    background:var(--ink-soft); border:1px solid var(--line); min-width:190px; padding:6px 0; z-index:60;
+  }
+  .nav-item:hover .dropdown, .nav-item:focus-within .dropdown{display:block;}
+  .dropdown a{display:block; padding:11px 18px; font-size:14px; border-bottom:0 !important; color:var(--paper-dim);}
+  .dropdown a:hover{background:var(--ink); color:var(--lime);}
+  .nav-toggle{display:none; background:none; border:1px solid var(--line); color:var(--paper); padding:8px 12px; font-family:inherit; cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    padding:96px 0 72px;
+    overflow:hidden;
+  }
+  .hero .wrap{position:relative; z-index:2;}
+  .hero-grid{
+    display:grid; grid-template-columns: 1.15fr 0.85fr; gap:48px; align-items:end;
+  }
+  .kicker{
+    color:var(--lime); font-size:13px; letter-spacing:0.16em; text-transform:uppercase;
+    margin-bottom:18px; font-weight:600;
+  }
+  .hero h1{
+    font-size:clamp(48px, 7vw, 92px);
+    color:var(--paper);
+  }
+  .hero h1 em{
+    font-style:normal; color:var(--lime);
+  }
+  .hero p.lead{
+    max-width:46ch; margin-top:22px; color:var(--paper-dim); font-size:18px;
+  }
+  .hero-cta{display:flex; gap:14px; margin-top:34px; flex-wrap:wrap;}
+  .btn{
+    display:inline-block; font-family:'Work Sans',sans-serif; font-weight:600; font-size:14px;
+    padding:15px 26px; text-decoration:none; letter-spacing:0.02em; cursor:pointer; border:1px solid transparent;
+  }
+  .btn-primary{background:var(--lime); color:var(--ink);}
+  .btn-primary:hover{background:var(--paper);}
+  .btn-ghost{border-color:var(--paper-dim); color:var(--paper);}
+  .btn-ghost:hover{border-color:var(--lime); color:var(--lime);}
+
+  .hero-photo{
+    position:relative;
+    border:1px solid var(--line);
+  }
+  .hero-photo img{width:100%; height:520px; object-fit:cover; object-position:center 20%; filter:grayscale(15%) contrast(1.05);}
+  .hero-photo .tag{
+    position:absolute; bottom:0; left:0; background:var(--lime); color:var(--ink);
+    padding:10px 16px; font-family:'Anton',sans-serif; font-size:15px; letter-spacing:0.02em;
+  }
+  .corner{position:absolute; width:18px; height:18px; border:2px solid var(--lime);}
+  .corner.tl{top:-1px; left:-1px; border-right:0; border-bottom:0;}
+  .corner.br{bottom:-1px; right:-1px; border-left:0; border-top:0;}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:88px 0; scroll-margin-top:72px;}
+  section.alt{background:var(--ink-soft);}
+  .sec-head{
+    display:flex; justify-content:space-between; align-items:flex-end; gap:24px; margin-bottom:52px;
+    flex-wrap:wrap; border-bottom:1px solid var(--line); padding-bottom:26px;
+  }
+  .sec-num{font-family:'Anton',sans-serif; color:var(--steel); font-size:16px; letter-spacing:0.06em;}
+  .sec-head h2{font-size:clamp(30px,4vw,46px); max-width:16ch;}
+  .sec-head p{color:var(--paper-dim); max-width:38ch; font-size:15px; margin:0;}
+
+  /* ---------- SERVICES ---------- */
+  .services{display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--line);}
+  .service{background:var(--ink); padding:36px 30px;}
+  .service .num{color:var(--lime); font-family:'Anton',sans-serif; font-size:14px;}
+  .service h3{font-size:24px; margin:18px 0 12px;}
+  .service p{color:var(--paper-dim); font-size:15px; margin:0;}
+
+  /* ---------- TRAINERS ---------- */
+  .trainer-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .trainer{background:var(--ink-soft); padding:0 0 26px;}
+  .trainer-photo{width:100%; aspect-ratio:1/1; overflow:hidden; margin-bottom:20px; background:var(--ink);}
+  .trainer-photo img{width:100%; height:100%; object-fit:cover; filter:grayscale(15%) contrast(1.05);}
+  .trainer-photo.mono{
+    display:flex; align-items:center; justify-content:center;
+    font-family:'Anton',sans-serif; font-size:42px; color:var(--lime);
+    background:repeating-linear-gradient(135deg, var(--ink) 0px, var(--ink) 14px, var(--ink-soft) 14px, var(--ink-soft) 28px);
+  }
+  .trainer h3{font-size:20px; padding:0 22px; margin-bottom:6px;}
+  .trainer .role{padding:0 22px; font-size:13px; color:var(--steel); letter-spacing:0.03em;}
+  .trainer .bio{padding:0 22px; margin:14px 0 0; font-size:14px; color:var(--paper-dim); max-width:32ch;}
+  .trainer{scroll-margin-top:88px;}
+
+  /* ---------- PACKAGES ---------- */
+  .includes{
+    display:flex; flex-wrap:wrap; gap:12px 34px; margin-bottom:46px;
+  }
+  .includes div{
+    font-size:14px; color:var(--paper-dim); display:flex; align-items:center; gap:10px;
+  }
+  .includes div::before{content:""; width:6px; height:6px; background:var(--lime); flex:none;}
+  .pricing{
+    display:grid; grid-template-columns:repeat(5,1fr); border:1px solid var(--line);
+  }
+  .price-card{
+    padding:30px 20px; border-left:1px solid var(--line); text-align:left; position:relative;
+  }
+  .price-card:first-child{border-left:0;}
+  .price-card.feature{background:var(--lime); color:var(--ink);}
+  .price-card .sessions{font-size:13px; letter-spacing:0.05em; color:var(--steel); text-transform:uppercase;}
+  .price-card.feature .sessions{color:var(--ink); opacity:0.7;}
+  .price-card .amount{font-family:'Anton',sans-serif; font-size:34px; margin:14px 0 4px;}
+  .price-card .per{font-size:13px; color:var(--paper-dim);}
+  .price-card.feature .per{color:var(--ink); opacity:0.75;}
+  .price-card .best{
+    position:absolute; top:-1px; right:0; background:var(--ink); color:var(--lime);
+    font-size:11px; letter-spacing:0.08em; padding:5px 10px; text-transform:uppercase;
+  }
+  .fine{margin-top:26px; display:flex; gap:34px; flex-wrap:wrap; font-size:13px; color:var(--steel);}
+
+  /* ---------- STRETCH / MOBILITY ---------- */
+  .stretch-grid{display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center;}
+  .stretch-copy h2{font-size:clamp(30px,4vw,44px); max-width:14ch; margin-bottom:22px;}
+  .stretch-copy p{color:var(--paper-dim); font-size:16px; max-width:44ch;}
+  .stretch-copy p.big{font-size:19px; color:var(--paper); font-style:italic; margin-bottom:20px;}
+  .stretch-photos{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  .stretch-photos img{height:340px; object-fit:cover; width:100%; object-position:center 25%; filter:grayscale(10%);}
+  .stretch-photos .p2{margin-top:34px;}
+
+  /* ---------- SHOP ---------- */
+  .shop-card{
+    display:grid; grid-template-columns:1fr 1fr; border:1px solid var(--line);
+  }
+  .shop-photos{display:grid; grid-template-columns:1fr 1fr;}
+  .shop-photos img{height:100%; object-fit:cover; width:100%; object-position:top center;}
+  .shop-info{padding:44px; display:flex; flex-direction:column; justify-content:center;}
+  .shop-info .tagname{color:var(--gold); font-size:13px; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:10px;}
+  .shop-info h3{font-size:34px; margin-bottom:14px;}
+  .shop-info p{color:var(--paper-dim); font-size:15px; max-width:40ch;}
+  .price-row{display:flex; align-items:baseline; gap:14px; margin:24px 0 26px;}
+  .price-row .big-price{font-family:'Anton',sans-serif; font-size:40px; color:var(--gold);}
+  .price-row .old{color:var(--steel); text-decoration:line-through; font-size:16px;}
+
+  /* ---------- MACRO CALCULATOR ---------- */
+  .calc{
+    display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .calc-form, .calc-result{background:var(--ink); padding:40px;}
+  .field{margin-bottom:20px;}
+  .field label{display:block; font-size:12px; letter-spacing:0.06em; text-transform:uppercase; color:var(--steel); margin-bottom:8px;}
+  .row2{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+  select, input[type="number"]{
+    width:100%; background:var(--ink-soft); border:1px solid var(--line); color:var(--paper);
+    padding:12px 14px; font-family:'Work Sans',sans-serif; font-size:15px;
+  }
+  select:focus, input:focus{outline:2px solid var(--lime); outline-offset:1px;}
+  .seg{display:flex; border:1px solid var(--line);}
+  .seg button{
+    flex:1; background:none; border:0; color:var(--paper-dim); padding:11px; font-family:'Work Sans'; font-size:14px; cursor:pointer; border-right:1px solid var(--line);
+  }
+  .seg button:last-child{border-right:0;}
+  .seg button.active{background:var(--lime); color:var(--ink); font-weight:600;}
+  .calc-result h3{font-size:15px; text-transform:uppercase; letter-spacing:0.08em; color:var(--steel); margin-bottom:26px;}
+  .kcal-total{font-family:'Anton',sans-serif; font-size:56px; color:var(--lime); line-height:1;}
+  .kcal-total span{font-size:16px; font-family:'Work Sans'; color:var(--paper-dim); text-transform:none; letter-spacing:0;}
+  .macro-bars{margin-top:30px; display:flex; flex-direction:column; gap:16px;}
+  .macro-row{display:grid; grid-template-columns:80px 1fr 90px; align-items:center; gap:14px; font-size:14px;}
+  .bar-track{height:8px; background:var(--ink-soft); position:relative;}
+  .bar-fill{height:100%;}
+  .bar-fill.p{background:var(--lime);}
+  .bar-fill.c{background:var(--gold);}
+  .bar-fill.f{background:var(--steel);}
+  .calc-note{margin-top:28px; font-size:12.5px; color:var(--steel); border-top:1px solid var(--line); padding-top:18px;}
+
+  /* ---------- MEAL PLANS ---------- */
+  .tabs{display:flex; gap:1px; background:var(--line); border:1px solid var(--line); margin-bottom:0; width:fit-content;}
+  .tabs button{
+    background:var(--ink); color:var(--paper-dim); border:0; padding:14px 26px; font-family:'Work Sans'; font-weight:600; font-size:14px; cursor:pointer;
+  }
+  .tabs button.active{background:var(--lime); color:var(--ink);}
+  .meal-panel{display:none; border:1px solid var(--line); border-top:0; padding:40px;}
+  .meal-panel.active{display:block;}
+  .meal-panel .goal-desc{color:var(--paper-dim); max-width:58ch; margin-bottom:34px; font-size:15px;}
+  .meal-list{display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:var(--line); border:1px solid var(--line);}
+  .meal{background:var(--ink); padding:22px;}
+  .meal .when{color:var(--gold); font-size:12px; letter-spacing:0.08em; text-transform:uppercase; margin-bottom:10px;}
+  .meal p{margin:0; font-size:14.5px; color:var(--paper-dim);}
+  .meal-macros{margin-top:44px; display:flex; gap:40px; flex-wrap:wrap;}
+  .meal-macros div{font-size:14px; color:var(--paper-dim);}
+  .meal-macros strong{display:block; font-family:'Anton',sans-serif; font-size:26px; color:var(--paper); font-weight:400;}
+
+  /* ---------- TRANSFORMATIONS ---------- */
+  .tgrid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:2px; background:var(--line);
+  }
+  .tcard{background:var(--ink); position:relative;}
+  .tcard img{width:100%; height:340px; object-fit:cover; object-position:top center; filter:grayscale(20%) contrast(1.05);}
+  .tcard .cap{padding:16px 18px 20px;}
+  .tcard .cap .name{font-family:'Anton',sans-serif; font-size:17px; color:var(--lime); letter-spacing:0.02em;}
+  .tcard .cap p{margin:6px 0 0; font-size:13.5px; color:var(--paper-dim);}
+
+  /* ---------- MEMBER PORTAL ---------- */
+  .portal-login{
+    display:grid; grid-template-columns:1.15fr 0.85fr; gap:1px; background:var(--line); border:1px solid var(--line);
+  }
+  .portal-login-copy{background:var(--ink); padding:44px;}
+  .portal-login-copy h3{font-size:26px; font-family:'Anton',sans-serif; text-transform:uppercase; margin-bottom:14px;}
+  .portal-login-copy > p{color:var(--paper-dim); font-size:15px; max-width:42ch; margin-bottom:26px;}
+  .portal-feature-list{
+    list-style:none; margin:0; padding:0; display:grid; grid-template-columns:1fr 1fr; gap:12px 24px;
+  }
+  .portal-feature-list li{
+    font-size:14px; color:var(--paper-dim); display:flex; align-items:center; gap:10px;
+  }
+  .portal-feature-list li::before{content:""; width:6px; height:6px; background:var(--lime); flex:none;}
+  .portal-login-form{background:var(--ink); padding:44px; display:flex; flex-direction:column; justify-content:center;}
+  .portal-demo-note{margin-top:18px; font-size:12.5px; color:var(--steel); line-height:1.5;}
+
+  .portal-dashboard{margin-top:1px;}
+  .portal-dash-head{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+    padding-bottom:24px; margin-bottom:1px; border-bottom:1px solid var(--line);
+  }
+  .portal-grid{
+    display:grid; grid-template-columns:repeat(3, 1fr); gap:1px; background:var(--line); border:1px solid var(--line); border-top:0;
+  }
+  .portal-card{background:var(--ink); padding:26px;}
+  .pc-head{font-size:12px; letter-spacing:0.07em; text-transform:uppercase; color:var(--steel); margin-bottom:16px;}
+  .pc-big{font-family:'Anton',sans-serif; font-size:34px; color:var(--paper); line-height:1;}
+  .pc-big span{font-family:'Work Sans',sans-serif; font-size:14px; color:var(--paper-dim); text-transform:none; letter-spacing:0; margin-left:4px;}
+  .pc-sub{font-size:13px; color:var(--paper-dim); margin-top:10px;}
+  .pc-spark{width:100%; height:40px; margin-top:16px; display:block;}
+  .pc-photo-row{display:grid; grid-template-columns:repeat(3,1fr); gap:6px;}
+  .pc-photo-row img{width:100%; height:76px; object-fit:cover; filter:grayscale(20%);}
+  .pc-list{list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .pc-list li{font-size:14.5px; color:var(--paper); padding-bottom:10px; border-bottom:1px solid var(--line);}
+  .pc-list li:last-child{border-bottom:0; padding-bottom:0;}
+  .pc-list li.muted{color:var(--steel); font-size:13px;}
+  .pc-pr-row, .pc-macro-row{
+    display:flex; justify-content:space-between; align-items:baseline; font-size:14.5px; color:var(--paper-dim);
+    padding:9px 0; border-bottom:1px solid var(--line);
+  }
+  .pc-pr-row:last-child, .pc-macro-row:last-child{border-bottom:0;}
+  .pc-pr-row strong, .pc-macro-row strong{color:var(--paper); font-family:'Anton',sans-serif; font-weight:400; font-size:17px;}
+  .pc-msg{font-size:14px; color:var(--paper-dim); padding:12px 0; border-bottom:1px solid var(--line);}
+  .pc-msg:last-child{border-bottom:0; padding-bottom:0;}
+  .pc-msg strong{color:var(--lime); font-weight:600;}
+  .pc-badges{display:flex; flex-wrap:wrap; gap:10px;}
+  .badge{
+    font-size:12px; padding:9px 12px; border:1px solid var(--lime); color:var(--lime); letter-spacing:0.02em;
+  }
+  .badge.locked{border-color:var(--line); color:var(--steel);}
+
+  /* ---------- CTA / FOOTER ---------- */
+  .cta-band{
+    padding:80px 0; text-align:center; border-top:1px solid var(--line); border-bottom:1px solid var(--line);
+  }
+  .cta-band h2{font-size:clamp(32px,5vw,58px); max-width:20ch; margin:0 auto 26px;}
+  footer{padding:56px 0 40px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px;}
+  footer h4{font-family:'Anton',sans-serif; font-size:14px; letter-spacing:0.06em; color:var(--steel); margin-bottom:16px; text-transform:uppercase;}
+  footer p, footer li{color:var(--paper-dim); font-size:14.5px;}
+  footer ul{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px;}
+  footer ul a{text-decoration:none; color:var(--paper-dim);}
+  footer ul a:hover{color:var(--lime);}
+  .foot-bottom{margin-top:50px; padding-top:24px; border-top:1px solid var(--line); font-size:12.5px; color:var(--steel); display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width: 900px){
+    nav.links{
+      display:none; position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; gap:0; background:var(--ink);
+      border-bottom:1px solid var(--line);
+    }
+    nav.links.mobile-open{display:flex;}
+    nav.links > a{padding:16px 28px; border-bottom:1px solid var(--line) !important;}
+    .nav-item{width:100%;}
+    .nav-item > .nav-caret{width:100%; justify-content:space-between; padding:16px 28px; border-bottom:1px solid var(--line);}
+    .nav-item.open > .nav-caret::after{transform:rotate(-90deg);}
+    .dropdown{
+      display:none; position:static; border:0; margin-top:0; padding:0;
+      background:var(--ink-soft);
+    }
+    .nav-item.open .dropdown{display:block;}
+    .dropdown a{padding:14px 40px; border-bottom:1px solid var(--line) !important;}
+    .nav-toggle{display:block;}
+    .hero-grid{grid-template-columns:1fr;}
+    .services{grid-template-columns:1fr;}
+    .trainer-grid{grid-template-columns:1fr 1fr;}
+    .pricing{grid-template-columns:1fr 1fr;}
+    .price-card{border-bottom:1px solid var(--line);}
+    .stretch-grid{grid-template-columns:1fr; gap:30px;}
+    .stretch-photos{order:-1;}
+    .shop-card{grid-template-columns:1fr;}
+    .shop-photos{grid-template-columns:1fr 1fr;}
+    .calc{grid-template-columns:1fr;}
+    .meal-list{grid-template-columns:1fr 1fr;}
+    .tgrid{grid-template-columns:1fr 1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .portal-login{grid-template-columns:1fr;}
+    .portal-grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width: 560px){
+    .pricing{grid-template-columns:1fr;}
+    .price-card{border-left:0 !important; border-bottom:1px solid var(--line);}
+    .meal-list{grid-template-columns:1fr;}
+    .tgrid{grid-template-columns:1fr;}
+    .trainer-grid{grid-template-columns:1fr;}
+    .row2{grid-template-columns:1fr;}
+    .portal-grid{grid-template-columns:1fr;}
+    .portal-feature-list{grid-template-columns:1fr;}
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+    *{transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="navbar">
+    <div class="brand">
+      <div class="brand-mark"><img src="images/logo.png" alt="Health &amp; Body Dynamics logo"></div>
+      <span class="disp" style="color:var(--paper-dim); font-size:13px; letter-spacing:0.08em;">Health &amp; Body Dynamics</span>
+    </div>
+    <nav class="links">
+      <a href="#training">Training</a>
+      <div class="nav-item">
+        <button type="button" class="nav-caret" aria-expanded="false">Trainers</button>
+        <div class="dropdown">
+          <a href="#trainer-tony">Tony Montoya</a>
+          <a href="#trainer-ralph">Ralph Garcia</a>
+          <a href="#trainer-rohan">Captain Rohan</a>
+          <a href="#trainer-angel">Angel</a>
+        </div>
+      </div>
+      <a href="#stretch">Mobility</a>
+      <a href="#shop">Shop</a>
+      <a href="#calculator">Macros</a>
+      <a href="#meals">Meal Plans</a>
+      <a href="#transformations">Transformations</a>
+      <a href="#portal">Member Portal</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <button class="nav-toggle" onclick="document.querySelector('nav.links').classList.toggle('mobile-open')">Menu</button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="kicker">50-Minute Sessions · One-on-One Coaching</div>
+      <h1>Train with <em>purpose.</em><br>Move without limits.</h1>
+      <p class="lead">Health &amp; Body Dynamics builds personalized strength programs, stretch &amp; mobility work, and nutrition guidance around your goals — not a template.</p>
+      <div class="hero-cta">
+        <a href="#packages" class="btn btn-primary">See VIP packages</a>
+        <a href="#stretch" class="btn btn-ghost">Explore mobility sessions</a>
+      </div>
+    </div>
+    <div class="hero-photo">
+      <div class="corner tl"></div>
+      <div class="corner br"></div>
+      <img src="images/shirt-worn.jpeg" alt="HBD trainer working with a client on cable resistance equipment">
+      <div class="tag">HBD Driven</div>
+    </div>
+  </div>
+</section>
+
+<hr class="rule">
+
+<!-- SERVICES -->
+<section id="training">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">01 — What we do</div>
+        <h2>Three ways to work with us</h2>
+      </div>
+      <p>Every program starts with an assessment, not a guess. Coaching, mobility, and nutrition all point at the same goal: measurable progress every 4–6 weeks.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <div class="num">Personal Training</div>
+        <h3>1-on-1 Coaching</h3>
+        <p>Effective 50-minute sessions built around a personalized exercise program, nutrition guidance, and a cardiovascular plan that fits your schedule.</p>
+      </div>
+      <div class="service">
+        <div class="num">Stretch &amp; Mobility</div>
+        <h3>Recovery Sessions</h3>
+        <p>Hands-on assisted stretching and percussion therapy to restore range of motion, reduce tightness, and keep you training pain-free.</p>
+      </div>
+      <div class="service">
+        <div class="num">Supplements</div>
+        <h3>The HBD Shop</h3>
+        <p>Apparel and supplements curated by our coaching staff — the same gear we use on the floor, available to take home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAINERS -->
+<section class="alt" id="trainers">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">02 — Coaching staff</div>
+        <h2>Meet your trainers</h2>
+      </div>
+      <p>Every session is coached by someone on this floor — no rotating strangers, no scripts.</p>
+    </div>
+    <div class="trainer-grid">
+      <div class="trainer" id="trainer-tony">
+        <div class="trainer-photo mono">TM</div>
+        <h3>Tony Montoya</h3>
+        <div class="role">HBD Trainer</div>
+        <p class="bio">Coaches strength and conditioning sessions, building programs around habits that hold up outside the gym.</p>
+      </div>
+      <div class="trainer" id="trainer-ralph">
+        <div class="trainer-photo mono">RG</div>
+        <h3>Ralph Garcia</h3>
+        <div class="role">HBD Trainer</div>
+        <p class="bio">Works with clients from their first session through advanced programming, with an eye for clean technique.</p>
+      </div>
+      <div class="trainer" id="trainer-rohan">
+        <div class="trainer-photo"><img src="images/stretch-2.jpeg" alt="Captain Rohan coaching a client" style="object-position:top center;"></div>
+        <h3>Captain Rohan</h3>
+        <div class="role">HBD Trainer</div>
+        <p class="bio">Leads HBD's stretch &amp; mobility sessions, pairing hands-on technique with percussion therapy for recovery.</p>
+      </div>
+      <div class="trainer" id="trainer-angel">
+        <div class="trainer-photo mono">A</div>
+        <h3>Angel</h3>
+        <div class="role">HBD Trainer</div>
+        <p class="bio">Brings energy to every session and keeps clients accountable between visits to the studio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section id="packages">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">03 — Pricing</div>
+        <h2>VIP training packages</h2>
+      </div>
+      <p>The more you train, the lower your rate per session. Every tier includes full coaching support.</p>
+    </div>
+
+    <div class="includes">
+      <div>Effective 50-minute training sessions</div>
+      <div>Personalized exercise program</div>
+      <div>Personalized nutrition guidance</div>
+      <div>Personalized cardiovascular program</div>
+      <div>Progress evaluations every 4–6 weeks</div>
+    </div>
+
+    <div class="pricing">
+      <div class="price-card">
+        <div class="sessions">4 / month</div>
+        <div class="amount">$480</div>
+        <div class="per">$120 per session</div>
+      </div>
+      <div class="price-card">
+        <div class="sessions">8 / month</div>
+        <div class="amount">$920</div>
+        <div class="per">$115 per session</div>
+      </div>
+      <div class="price-card">
+        <div class="sessions">12 / month</div>
+        <div class="amount">$1,320</div>
+        <div class="per">$110 per session</div>
+      </div>
+      <div class="price-card feature">
+        <div class="best">Most popular</div>
+        <div class="sessions">16 / month</div>
+        <div class="amount">$1,680</div>
+        <div class="per">$105 per session</div>
+      </div>
+      <div class="price-card">
+        <div class="sessions">20 / month</div>
+        <div class="amount">$2,000</div>
+        <div class="per">$100 per session</div>
+      </div>
+    </div>
+
+    <div class="fine">
+      <div>30-day expiration — starts when your first session is completed</div>
+      <div>24-hour cancellation notice required</div>
+    </div>
+  </div>
+</section>
+
+<!-- STRETCH & MOBILITY -->
+<section class="alt" id="stretch">
+  <div class="wrap stretch-grid">
+    <div class="stretch-copy">
+      <div class="sec-num" style="margin-bottom:14px;">04 — Recovery</div>
+      <h2>Tight isn't normal. It's just familiar.</h2>
+      <p class="big">Get your range of motion back — one table, one hour at a time.</p>
+      <p>Our assisted stretch &amp; mobility sessions pair hands-on technique with percussion therapy to break up restrictions that stretching alone can't reach. Walk out moving the way you did before years at a desk got in the way — looser hips, freer shoulders, and a lower back that finally lets you bend without thinking about it.</p>
+      <div class="hero-cta" style="margin-top:28px;">
+        <a href="#contact" class="btn btn-primary">Book a mobility session</a>
+      </div>
+    </div>
+    <div class="stretch-photos">
+      <img src="images/stretch-1.jpeg" alt="HBD coach performing myofascial release on a client's lower back">
+      <img class="p2" src="images/stretch-2.jpeg" alt="HBD coach using percussion therapy during a mobility session">
+    </div>
+  </div>
+</section>
+
+<!-- SHOP -->
+<section id="shop">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">05 — Shop</div>
+        <h2>Gear from the gym floor</h2>
+      </div>
+      <p>The tee our coaches wear to every session. Heavyweight cotton, HBD Driven graphic, made to survive the rack.</p>
+    </div>
+
+    <div class="shop-card">
+      <div class="shop-photos">
+        <img src="images/shirt-back.jpeg" alt="Back of the white HBD Driven t-shirt">
+        <img src="images/shirt-worn.jpeg" alt="HBD Driven t-shirt worn during a training session">
+      </div>
+      <div class="shop-info">
+        <div class="tagname">Apparel</div>
+        <h3>HBD Driven Tee — White</h3>
+        <p>Unisex fit, screen-printed HBD Driven graphic across the back, small crest on the sleeve. The shirt you'll actually train in.</p>
+        <div class="price-row">
+          <div class="big-price">$33</div>
+        </div>
+        <div class="hero-cta">
+          <a href="#contact" class="btn btn-primary">Buy in-studio</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MACRO CALCULATOR -->
+<section class="alt" id="calculator">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">06 — Tools</div>
+        <h2>Macro calculator</h2>
+      </div>
+      <p>Get a starting point for daily calories and macros based on your stats, activity, and goal.</p>
+    </div>
+
+    <div class="calc">
+      <div class="calc-form">
+        <div class="field">
+          <label>Sex</label>
+          <div class="seg" id="sexSeg">
+            <button type="button" class="active" data-val="male">Male</button>
+            <button type="button" data-val="female">Female</button>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Age</label>
+            <input type="number" id="age" value="30" min="14" max="90">
+          </div>
+          <div class="field">
+            <label>Units</label>
+            <div class="seg" id="unitSeg">
+              <button type="button" class="active" data-val="imperial">lb / in</button>
+              <button type="button" data-val="metric">kg / cm</button>
+            </div>
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label id="weightLabel">Weight (lb)</label>
+            <input type="number" id="weight" value="180">
+          </div>
+          <div class="field">
+            <label id="heightLabel">Height (in)</label>
+            <input type="number" id="height" value="69">
+          </div>
+        </div>
+        <div class="field">
+          <label>Activity level</label>
+          <select id="activity">
+            <option value="1.2">Sedentary — desk job, little exercise</option>
+            <option value="1.375">Light — training 1–3 days/week</option>
+            <option value="1.55" selected>Moderate — training 3–5 days/week</option>
+            <option value="1.725">Active — training 6–7 days/week</option>
+            <option value="1.9">Very active — hard daily training</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Goal</label>
+          <div class="seg" id="goalSeg">
+            <button type="button" data-val="loss">Fat loss</button>
+            <button type="button" class="active" data-val="maintain">Maintain</button>
+            <button type="button" data-val="gain">Muscle gain</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="calc-result">
+        <h3>Your daily target</h3>
+        <div class="kcal-total"><span id="kcalOut">2400</span> <span>calories / day</span></div>
+        <div class="macro-bars">
+          <div class="macro-row">
+            <div>Protein</div>
+            <div class="bar-track"><div class="bar-fill p" id="pBar" style="width:35%;"></div></div>
+            <div id="pOut">180g</div>
+          </div>
+          <div class="macro-row">
+            <div>Carbs</div>
+            <div class="bar-track"><div class="bar-fill c" id="cBar" style="width:40%;"></div></div>
+            <div id="cOut">220g</div>
+          </div>
+          <div class="macro-row">
+            <div>Fat</div>
+            <div class="bar-track"><div class="bar-fill f" id="fBar" style="width:25%;"></div></div>
+            <div id="fOut">70g</div>
+          </div>
+        </div>
+        <div class="calc-note">Estimated using the Mifflin-St Jeor equation. This is a starting point, not medical advice — your HBD coach will adjust it based on your progress checks.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MEAL PLANS -->
+<section id="meals">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">07 — Nutrition</div>
+        <h2>Sample meal plans</h2>
+      </div>
+      <p>General frameworks our coaches use as a starting point — your personalized plan is built during onboarding.</p>
+    </div>
+
+    <div class="tabs">
+      <button class="active" data-panel="gain">Muscle Gain</button>
+      <button data-panel="loss">Fat Loss</button>
+    </div>
+
+    <div class="meal-panel active" id="panel-gain">
+      <p class="goal-desc">Built around a modest calorie surplus and a high protein target, so training gains turn into muscle instead of getting lost. Carbs are timed around training to fuel your sessions.</p>
+      <div class="meal-list">
+        <div class="meal">
+          <div class="when">Breakfast</div>
+          <p>4 whole eggs + 2 egg whites, oats with berries, black coffee</p>
+        </div>
+        <div class="meal">
+          <div class="when">Lunch</div>
+          <p>8 oz grilled chicken thigh, jasmine rice, roasted vegetables, olive oil</p>
+        </div>
+        <div class="meal">
+          <div class="when">Pre/Post Workout</div>
+          <p>Whey protein shake, banana, rice cakes with peanut butter</p>
+        </div>
+        <div class="meal">
+          <div class="when">Dinner</div>
+          <p>8 oz salmon or lean beef, sweet potato, mixed greens</p>
+        </div>
+      </div>
+      <div class="meal-macros">
+        <div><strong>~3,000</strong>calories</div>
+        <div><strong>190g</strong>protein</div>
+        <div><strong>340g</strong>carbs</div>
+        <div><strong>85g</strong>fat</div>
+      </div>
+    </div>
+
+    <div class="meal-panel" id="panel-loss">
+      <p class="goal-desc">A moderate calorie deficit with protein kept high to protect muscle while the scale moves. Meals are built around volume — vegetables and lean protein first.</p>
+      <div class="meal-list">
+        <div class="meal">
+          <div class="when">Breakfast</div>
+          <p>3 egg whites + 1 whole egg, spinach, half an avocado</p>
+        </div>
+        <div class="meal">
+          <div class="when">Lunch</div>
+          <p>6 oz grilled chicken breast, large mixed salad, light vinaigrette</p>
+        </div>
+        <div class="meal">
+          <div class="when">Snack</div>
+          <p>Greek yogurt with berries, or a protein shake</p>
+        </div>
+        <div class="meal">
+          <div class="when">Dinner</div>
+          <p>6 oz white fish or lean turkey, steamed broccoli, small portion of quinoa</p>
+        </div>
+      </div>
+      <div class="meal-macros">
+        <div><strong>~1,800</strong>calories</div>
+        <div><strong>160g</strong>protein</div>
+        <div><strong>140g</strong>carbs</div>
+        <div><strong>55g</strong>fat</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRANSFORMATIONS -->
+<section id="transformations">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">08 — Results</div>
+        <h2>Real clients, real transformations</h2>
+      </div>
+      <p>Consistency, coaching, and a plan that adapts — here's what it looks like over time.</p>
+    </div>
+  </div>
+  <div class="tgrid">
+    <div class="tcard">
+      <img src="images/transform-1.jpeg" alt="Client before and after transformation, significant weight loss">
+      <div class="cap"><div class="name">Harry</div><p>317 lbs to 210 lbs within one year of consistent training.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-2.jpeg" alt="Client before and after transformation">
+      <div class="cap"><div class="name">Long-term client</div><p>A full physique change built one training block at a time.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-3.jpeg" alt="Client before and after transformation">
+      <div class="cap"><div class="name">Eduardo</div><p>Lost significant weight and rebuilt range of motion after 25 surgeries.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-4.jpeg" alt="Client transformation progress collage, 40 pounds down">
+      <div class="cap"><div class="name">Work in progress</div><p>40 lbs down and still going — proof that the process works.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-5.jpeg" alt="Client transformation over several years">
+      <div class="cap"><div class="name">Years of consistency</div><p>There are levels to it — progress that compounds year over year.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-6.jpeg" alt="Client before and after body recomposition">
+      <div class="cap"><div class="name">Body recomposition</div><p>Built muscle and dropped fat at the same time.</p></div>
+    </div>
+    <div class="tcard">
+      <img src="images/transform-7.jpeg" alt="Client before and after transformation">
+      <div class="cap"><div class="name">Total transformation</div><p>A new physique — and a new relationship with training.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBER PORTAL -->
+<section class="alt" id="portal">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <div class="sec-num">09 — Member Portal</div>
+        <h2>Your training, tracked</h2>
+      </div>
+      <p>Every HBD member gets a private login to see their own progress — no guessing where you stand between sessions.</p>
+    </div>
+
+    <div id="portalLogin" class="portal-login">
+      <div class="portal-login-copy">
+        <h3>Sign in to your HBD account</h3>
+        <p>Track your stats, review what your trainer assigned, and see how close you are to your next milestone.</p>
+        <ul class="portal-feature-list">
+          <li>Weight &amp; measurements</li>
+          <li>Progress photos</li>
+          <li>Workouts &amp; homework</li>
+          <li>Personal records</li>
+          <li>Weekly cardio goals</li>
+          <li>Nutrition targets</li>
+          <li>Upcoming appointments</li>
+          <li>Trainer messages</li>
+          <li>Milestones &amp; achievement badges</li>
+        </ul>
+      </div>
+      <div class="portal-login-form">
+        <div class="field">
+          <label>Email</label>
+          <input type="email" placeholder="you@email.com" id="portalEmail">
+        </div>
+        <div class="field">
+          <label>Password</label>
+          <input type="password" placeholder="••••••••" id="portalPassword">
+        </div>
+        <button class="btn btn-primary" style="width:100%; margin-top:6px;" onclick="enterPortal()">Sign In</button>
+        <div class="portal-demo-note">This is a preview of the member dashboard — no account required to look around.</div>
+      </div>
+    </div>
+
+    <div id="portalDashboard" class="portal-dashboard" hidden>
+      <div class="portal-dash-head">
+        <div>
+          <div class="sec-num" style="margin-bottom:8px;">Welcome back</div>
+          <h3 style="font-family:'Anton',sans-serif; font-size:26px; text-transform:uppercase;">Alex Rivera</h3>
+        </div>
+        <button class="btn btn-ghost" onclick="exitPortal()">Sign out</button>
+      </div>
+
+      <div class="portal-grid">
+
+        <div class="portal-card">
+          <div class="pc-head">Weight &amp; Measurements</div>
+          <div class="pc-big">184<span>lbs</span></div>
+          <div class="pc-sub">Down 6 lbs since your last check-in</div>
+          <svg class="pc-spark" viewBox="0 0 200 50" preserveAspectRatio="none">
+            <polyline points="0,15 25,20 50,18 75,28 100,25 125,34 150,30 175,40 200,38" fill="none" stroke="var(--lime)" stroke-width="2"/>
+          </svg>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Progress Photos</div>
+          <div class="pc-photo-row">
+            <img src="images/transform-4.jpeg" alt="Sample progress photo">
+            <img src="images/transform-6.jpeg" alt="Sample progress photo">
+            <img src="images/transform-1.jpeg" alt="Sample progress photo">
+          </div>
+          <div class="pc-sub">Last upload: Monday</div>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Today's Workout</div>
+          <ul class="pc-list">
+            <li>Back squat — 4×6</li>
+            <li>Romanian deadlift — 3×10</li>
+            <li>Walking lunge — 3×12/side</li>
+            <li class="muted">Homework: 15 min mobility flow</li>
+          </ul>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Personal Records</div>
+          <div class="pc-pr-row"><span>Back Squat</span><strong>245 lb</strong></div>
+          <div class="pc-pr-row"><span>Bench Press</span><strong>165 lb</strong></div>
+          <div class="pc-pr-row"><span>Deadlift</span><strong>295 lb</strong></div>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Weekly Cardio Goal</div>
+          <div class="pc-big">110<span>/ 150 min</span></div>
+          <div class="bar-track" style="margin-top:14px;"><div class="bar-fill p" style="width:73%;"></div></div>
+          <div class="pc-sub">40 minutes left this week</div>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Nutrition Targets</div>
+          <div class="pc-macro-row"><span>Calories</span><strong>2,400</strong></div>
+          <div class="pc-macro-row"><span>Protein</span><strong>180g</strong></div>
+          <div class="pc-macro-row"><span>Carbs</span><strong>220g</strong></div>
+          <div class="pc-macro-row"><span>Fat</span><strong>70g</strong></div>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Upcoming Appointments</div>
+          <ul class="pc-list">
+            <li>Thu, 6:00 PM — Training w/ Captain Rohan</li>
+            <li>Sat, 10:00 AM — Stretch &amp; Mobility</li>
+            <li class="muted">Next evaluation: in 12 days</li>
+          </ul>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Trainer Messages</div>
+          <div class="pc-msg"><strong>Captain Rohan</strong> — Great work on squats today. Keep icing that knee tonight.</div>
+          <div class="pc-msg"><strong>Tony Montoya</strong> — Logged your homework, nice consistency this week.</div>
+        </div>
+
+        <div class="portal-card">
+          <div class="pc-head">Milestones &amp; Badges</div>
+          <div class="pc-badges">
+            <div class="badge">50 Sessions</div>
+            <div class="badge">10 lb Down</div>
+            <div class="badge locked">6-Month Streak</div>
+            <div class="badge locked">First PR</div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="portal-demo-note" style="margin-top:30px;">This dashboard is a design preview — connecting it to real member accounts requires a scheduling/CRM backend.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-band">
+  <div class="wrap">
+    <h2>Your first session starts the clock. Let's make it count.</h2>
+    <a href="#contact" class="btn btn-primary">Get started</a>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="wrap foot-grid">
+    <div>
+      <div class="brand" style="margin-bottom:16px;"><div class="brand-mark"><img src="images/logo.png" alt="Health &amp; Body Dynamics logo" style="height:56px;"></div></div>
+      <p style="max-width:36ch;">Health &amp; Body Dynamics is a personal training studio offering one-on-one coaching, stretch &amp; mobility sessions, and gym-tested supplements &amp; apparel.</p>
+    </div>
+    <div>
+      <h4>Studio</h4>
+      <ul>
+        <li>Mon–Fri: 6am – 9pm</li>
+        <li>Sat: 8am – 2pm</li>
+        <li>Sun: Closed</li>
+      </ul>
+    </div>
+    <div>
+      <h4>Get in touch</h4>
+      <ul>
+        <li><a href="#">Book a consultation</a></li>
+        <li><a href="#">Message the studio</a></li>
+        <li><a href="#">Follow @healthbodydynamics</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="wrap foot-bottom">
+    <div>© <span id="year"></span> Health &amp; Body Dynamics</div>
+    <div>Built for the HBD training floor</div>
+  </div>
+</footer>
+
+<script>
+document.getElementById('year').textContent = new Date().getFullYear();
+
+/* ---- Member portal demo toggle ---- */
+function enterPortal(){
+  document.getElementById('portalLogin').hidden = true;
+  document.getElementById('portalDashboard').hidden = false;
+  document.getElementById('portalDashboard').scrollIntoView({behavior:'smooth', block:'start'});
+}
+function exitPortal(){
+  document.getElementById('portalDashboard').hidden = true;
+  document.getElementById('portalLogin').hidden = false;
+  document.getElementById('portalLogin').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+/* ---- Trainers submenu (accordion on mobile, hover on desktop) ---- */
+document.querySelectorAll('.nav-item').forEach(item=>{
+  const trigger = item.querySelector('.nav-caret');
+  trigger.addEventListener('click', ()=>{
+    const isOpen = item.classList.toggle('open');
+    trigger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  });
+});
+
+/* Close the mobile menu once a link (top-level or trainer bio) is chosen */
+document.querySelectorAll('nav.links a').forEach(link=>{
+  link.addEventListener('click', ()=>{
+    document.querySelector('nav.links').classList.remove('mobile-open');
+    document.querySelectorAll('.nav-item').forEach(item=>{
+      item.classList.remove('open');
+      item.querySelector('.nav-caret').setAttribute('aria-expanded', 'false');
+    });
+  });
+});
+
+/* ---- Segmented control helper ---- */
+function wireSeg(id, onChange){
+  const el = document.getElementById(id);
+  el.querySelectorAll('button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      el.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      onChange(btn.dataset.val);
+    });
+  });
+}
+
+/* ---- Macro calculator ---- */
+let state = { sex:'male', unit:'imperial', goal:'maintain' };
+
+wireSeg('sexSeg', v=>{ state.sex = v; calc(); });
+wireSeg('goalSeg', v=>{ state.goal = v; calc(); });
+wireSeg('unitSeg', v=>{
+  const wasImperial = state.unit === 'imperial';
+  state.unit = v;
+  const weightEl = document.getElementById('weight');
+  const heightEl = document.getElementById('height');
+  const wLabel = document.getElementById('weightLabel');
+  const hLabel = document.getElementById('heightLabel');
+  if(v === 'metric' && wasImperial){
+    weightEl.value = Math.round(weightEl.value * 0.453592);
+    heightEl.value = Math.round(heightEl.value * 2.54);
+    wLabel.textContent = 'Weight (kg)';
+    hLabel.textContent = 'Height (cm)';
+  } else if(v === 'imperial' && !wasImperial){
+    weightEl.value = Math.round(weightEl.value / 0.453592);
+    heightEl.value = Math.round(heightEl.value / 2.54);
+    wLabel.textContent = 'Weight (lb)';
+    hLabel.textContent = 'Height (in)';
+  }
+  calc();
+});
+
+['age','weight','height','activity'].forEach(id=>{
+  document.getElementById(id).addEventListener('input', calc);
+  document.getElementById(id).addEventListener('change', calc);
+});
+
+function calc(){
+  const age = parseFloat(document.getElementById('age').value) || 0;
+  let weightKg = parseFloat(document.getElementById('weight').value) || 0;
+  let heightCm = parseFloat(document.getElementById('height').value) || 0;
+  if(state.unit === 'imperial'){
+    weightKg = weightKg * 0.453592;
+    heightCm = heightCm * 2.54;
+  }
+  const activity = parseFloat(document.getElementById('activity').value);
+
+  let bmr;
+  if(state.sex === 'male'){
+    bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) + 5;
+  } else {
+    bmr = (10 * weightKg) + (6.25 * heightCm) - (5 * age) - 161;
+  }
+  let tdee = bmr * activity;
+
+  let kcal = tdee;
+  if(state.goal === 'loss') kcal = tdee - 500;
+  if(state.goal === 'gain') kcal = tdee + 300;
+  kcal = Math.max(1200, Math.round(kcal));
+
+  // Macro split by goal
+  let proteinPerKg, fatPct, carbPct, proteinPct;
+  if(state.goal === 'loss'){
+    proteinPerKg = 2.2; fatPct = 0.30;
+  } else if(state.goal === 'gain'){
+    proteinPerKg = 1.9; fatPct = 0.25;
+  } else {
+    proteinPerKg = 2.0; fatPct = 0.28;
+  }
+
+  const bodyWeightKg = state.unit === 'imperial'
+    ? (parseFloat(document.getElementById('weight').value) || 0) * 0.453592
+    : (parseFloat(document.getElementById('weight').value) || 0);
+
+  let proteinG = Math.round(proteinPerKg * bodyWeightKg);
+  let proteinKcal = proteinG * 4;
+  let fatKcal = kcal * fatPct;
+  let fatG = Math.round(fatKcal / 9);
+  let carbKcal = kcal - proteinKcal - fatKcal;
+  let carbG = Math.max(0, Math.round(carbKcal / 4));
+
+  const totalKcalCheck = proteinKcal + (fatG*9) + (carbG*4);
+  const pPct = Math.round((proteinKcal/totalKcalCheck)*100);
+  const cPct = Math.round(((carbG*4)/totalKcalCheck)*100);
+  const fPct = 100 - pPct - cPct;
+
+  document.getElementById('kcalOut').textContent = kcal.toLocaleString();
+  document.getElementById('pOut').textContent = proteinG + 'g';
+  document.getElementById('cOut').textContent = carbG + 'g';
+  document.getElementById('fOut').textContent = fatG + 'g';
+  document.getElementById('pBar').style.width = pPct + '%';
+  document.getElementById('cBar').style.width = cPct + '%';
+  document.getElementById('fBar').style.width = fPct + '%';
+}
+calc();
+
+/* ---- Meal plan tabs ---- */
+document.querySelectorAll('.tabs button').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
+    document.querySelectorAll('.meal-panel').forEach(p=>p.classList.remove('active'));
+    btn.classList.add('active');
+    document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
+  });
+});
+</script>
+
+</body>
+</html>
