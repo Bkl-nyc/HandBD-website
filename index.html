@@ -2160,7 +2160,9 @@
         <input type="hidden" name="_subject" value="New personal training inquiry">
         <input type="hidden" name="_captcha" value="false">
         <input type="hidden" name="_template" value="table">
-        <input type="hidden" name="_cc" value="Z_garcia@gmx.com, tonymontoya6536@gmail.com">
+        <input type="hidden" name="_cc" value="Z_garcia@gmx.com">
+        <input type="hidden" name="_cc" value="tonymontoya6536@gmail.com">
+        <input type="hidden" name="_next" id="_next" value="/">
         <div class="contact-form-grid">
           <div class="field">
             <label for="contactFirstName">First name</label>
@@ -2376,6 +2378,18 @@
         document.getElementById('panel-' + btn.dataset.panel).classList.add('active');
       });
     });
+  </script>
+
+  <script>
+    // Set FormSubmit redirect to the current origin + path so users don't see FormSubmit's response page
+    (function setFormNext() {
+      try {
+        var next = document.getElementById('_next');
+        if (next) next.value = window.location.origin + window.location.pathname + '?contact=sent';
+      } catch (e) {
+        // ignore errors
+      }
+    })();
   </script>
 
 </body>
