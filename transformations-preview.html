@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HBD Transformations Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --ink: #0d0c0b;
+            --panel: #171513;
+            --paper: #f6f0e4;
+            --muted: #bcb4a7;
+            --gold: #d9a536;
+            --gold-light: #f4cf73;
+            --line: rgba(217, 165, 54, .42);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            background:
+                radial-gradient(circle at 50% 24%, rgba(217, 165, 54, .09), transparent 35%),
+                linear-gradient(145deg, #151311, var(--ink) 55%);
+            color: var(--paper);
+            font-family: 'Work Sans', sans-serif;
+        }
+
+        .preview-note {
+            padding: 9px 20px;
+            background: var(--gold);
+            color: #16120b;
+            text-align: center;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+        }
+
+        header {
+            border-bottom: 1px solid var(--line);
+            background: rgba(13, 12, 11, .86);
+        }
+
+        nav {
+            width: min(1140px, calc(100% - 40px));
+            min-height: 76px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .brand img {
+            display: block;
+            width: 178px;
+            max-height: 54px;
+            object-fit: contain;
+            object-position: left center;
+            filter: sepia(1) saturate(.85) brightness(1.1);
+        }
+
+        .links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .links span {
+            color: #d5ccbe;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .links .active {
+            color: var(--gold-light);
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 5px;
+        }
+
+        main {
+            width: min(1120px, calc(100% - 40px));
+            margin: 0 auto;
+            padding: 62px 0 54px;
+            text-align: center;
+        }
+
+        .eyebrow {
+            margin: 0 0 10px;
+            color: var(--gold);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: .22em;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            margin: 0;
+            color: var(--gold-light);
+            font: 400 clamp(38px, 5vw, 64px)/1 'Anton', sans-serif;
+            letter-spacing: .015em;
+            text-transform: uppercase;
+            text-shadow: 0 3px 18px rgba(217, 165, 54, .18);
+        }
+
+        .intro {
+            max-width: 670px;
+            margin: 12px auto 34px;
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        .stories {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            text-align: left;
+        }
+
+        .story {
+            overflow: hidden;
+            background: linear-gradient(180deg, #211e1b, #151311);
+            border: 1px solid var(--line);
+            box-shadow: 0 18px 40px rgba(0, 0, 0, .28);
+        }
+
+        .photo {
+            position: relative;
+            height: 310px;
+            overflow: hidden;
+            background: #28231d;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 24%;
+            filter: saturate(.78) contrast(1.04) brightness(.88);
+        }
+
+        .photo::after {
+            content: '';
+            position: absolute;
+            inset: 45% 0 0;
+            background: linear-gradient(transparent, rgba(13, 12, 11, .72));
+            pointer-events: none;
+        }
+
+        .badge {
+            position: absolute;
+            z-index: 1;
+            top: 14px;
+            left: 14px;
+            padding: 6px 9px;
+            background: var(--gold-light);
+            color: #17120a;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+        }
+
+        .copy {
+            padding: 20px 22px 24px;
+            text-align: center;
+        }
+
+        .copy h2 {
+            margin: 0;
+            color: var(--paper);
+            font: 400 24px/1 'Anton', sans-serif;
+            text-transform: uppercase;
+        }
+
+        .result {
+            margin: 7px 0 13px;
+            color: var(--gold-light);
+            font-size: 15px;
+            font-weight: 700;
+        }
+
+        .quote {
+            margin: 0;
+            color: var(--muted);
+            font-size: 12px;
+            font-style: italic;
+            line-height: 1.55;
+        }
+
+        .cta {
+            display: inline-block;
+            margin-top: 28px;
+            padding: 15px 30px;
+            background: linear-gradient(180deg, var(--gold-light), var(--gold));
+            color: #17120a;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 800;
+            box-shadow: 0 8px 25px rgba(217, 165, 54, .2);
+        }
+
+        .reviews {
+            margin: 12px 0 0;
+            color: var(--gold-light);
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .proof {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin-top: 22px;
+            color: #c9c0b3;
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+        .proof span {
+            padding: 0 18px;
+            border-right: 1px solid rgba(217, 165, 54, .35);
+        }
+
+        .proof span:last-child {
+            border: 0;
+        }
+
+        @media (max-width: 800px) {
+            .links {
+                display: none;
+            }
+
+            .stories {
+                grid-template-columns: 1fr;
+                max-width: 460px;
+                margin: 0 auto;
+            }
+
+            .photo {
+                height: 360px;
+            }
+
+            .proof {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .proof span {
+                border: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="preview-note">Design preview — the live page has not been changed</div>
+    <header>
+        <nav>
+            <div class="brand"><img src="images/logo.png" alt="Health &amp; Body Dynamics"></div>
+            <div class="links" aria-hidden="true">
+                <span>Home</span><span>Programs</span><span
+                    class="active">Transformations</span><span>About</span><span>Coaches</span><span>Contact</span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <p class="eyebrow">Proven results</p>
+        <h1>Real clients, real transformations</h1>
+        <p class="intro">Real people. Real results. No shortcuts. Just consistent work, expert coaching, and
+            accountability.</p>
+
+        <section class="stories" aria-label="Client transformation stories">
+            <article class="story">
+                <div class="photo">
+                    <span class="badge">Before + After</span>
+                    <img src="images/transform-1.jpeg" alt="Harry's before and after transformation">
+                </div>
+                <div class="copy">
+                    <h2>Harry</h2>
+                    <p class="result">317 lbs to 210 lbs in one year</p>
+                    <p class="quote">“A total journey of confidence, stamina, and strength—built through consistent work
+                        and support.”</p>
+                </div>
+            </article>
+
+            <article class="story">
+                <div class="photo">
+                    <span class="badge">Before + After</span>
+                    <img src="images/transform-3.jpeg" alt="Eduardo's transformation">
+                </div>
+                <div class="copy">
+                    <h2>Eduardo</h2>
+                    <p class="result">Rebuilt strength after 25 surgeries</p>
+                    <p class="quote">“He didn’t just lose weight—he rebuilt mobility, range of motion, and confidence
+                        through every phase.”</p>
+                </div>
+            </article>
+
+            <article class="story">
+                <div class="photo">
+                    <span class="badge">Before + After</span>
+                    <img src="images/transform-7.jpeg" alt="Client before and after transformation">
+                </div>
+                <div class="copy">
+                    <h2>Client story</h2>
+                    <p class="result">A complete body transformation</p>
+                    <p class="quote">“A structured plan, patient coaching, and accountability made lasting progress
+                        possible.”</p>
+                </div>
+            </article>
+        </section>
+
+        <a class="cta" href="#">Your story could be next — Book Your Assessment</a>
+        <p class="reviews">★ Read our Google reviews</p>
+        <div class="proof">
+            <span>100+ client transformations</span>
+            <span>4.9 ★ average rating</span>
+            <span>Licensed &amp; certified trainers</span>
+        </div>
+    </main>
+</body>
+
+</html>
