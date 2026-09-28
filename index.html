@@ -618,19 +618,27 @@
     .shop-card {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      border: 1px solid var(--line);
+      border: 1px solid rgba(214, 230, 119, 0.7);
+      background: linear-gradient(180deg, #f8f7f2 0%, #eef3de 100%);
+      box-shadow: 0 18px 38px rgba(0, 0, 0, 0.16), 0 0 0 4px rgba(213, 239, 95, 0.18);
     }
 
     .shop-photos {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
+      background: #f0f4e7;
+      overflow: hidden;
+      align-items: center;
     }
 
     .shop-photos img {
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       width: 100%;
-      object-position: top center;
+      object-position: center;
+      background: #f6f8f1;
+      filter: saturate(1.2) contrast(1.15) brightness(1.18);
+      padding: 18px;
     }
 
     .shop-info {
@@ -638,25 +646,30 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background: linear-gradient(180deg, #ffffff 0%, #f2f8e6 100%);
     }
 
     .shop-info .tagname {
-      color: var(--gold);
+      color: #6d8b10;
       font-size: 13px;
       letter-spacing: 0.1em;
       text-transform: uppercase;
       margin-bottom: 10px;
+      font-weight: 800;
     }
 
     .shop-info h3 {
       font-size: 34px;
       margin-bottom: 14px;
+      color: #121212;
+      text-shadow: none;
     }
 
     .shop-info p {
-      color: var(--paper-dim);
+      color: rgba(17, 17, 17, 0.8);
       font-size: 15px;
       max-width: 40ch;
+      line-height: 1.6;
     }
 
     .price-row {
@@ -1312,10 +1325,91 @@
       scroll-margin-top: 72px;
     }
 
+    .supplements-panel {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 22px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .supplements-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
     .cta-band h2 {
       font-size: clamp(32px, 5vw, 58px);
       max-width: 20ch;
       margin: 0 auto 26px;
+    }
+
+    .supplements-copy h2 {
+      margin: 0 0 16px;
+      max-width: 12ch;
+      text-align: left;
+    }
+
+    .supplements-copy p {
+      color: var(--paper-dim);
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 48ch;
+      margin: 0 0 20px;
+    }
+
+    .supplements-ad {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: linear-gradient(180deg, #f4f8e8 0%, #ffffff 100%);
+      border: 1px solid rgba(213, 239, 95, 0.8);
+      box-shadow: 0 16px 30px rgba(0, 0, 0, 0.12);
+      padding: 14px 16px;
+      min-height: 170px;
+    }
+
+    .supplements-ad img {
+      width: 150px;
+      height: 150px;
+      object-fit: contain;
+      background: #f7f8f5;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      padding: 8px;
+    }
+
+    .supplements-ad-copy {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      flex: 1;
+    }
+
+    .supplements-ad-copy .mini-tag {
+      color: #6d8b10;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .supplements-ad-copy h3 {
+      margin: 0;
+      font-size: 26px;
+      line-height: 1.05;
+      color: #111;
+    }
+
+    .supplements-ad-copy p {
+      margin: 0;
+      color: rgba(17, 17, 17, 0.75);
+      font-size: 14px;
+      line-height: 1.5;
     }
 
     .contact-dialog {
@@ -1867,19 +1961,19 @@
 
       <div class="shop-card">
         <div class="shop-photos">
-          <img src="images/shirt-back.jpeg" alt="Back of the white HBD Driven t-shirt">
-          <img src="images/shirt-worn.jpeg" alt="HBD Driven t-shirt worn during a training session">
+          <img src="images/Nutrabio.jpg" alt="Nutrabio kosher supplement product">
         </div>
         <div class="shop-info">
-          <div class="tagname">Apparel</div>
-          <h3>HBD Driven Tee — White</h3>
-          <p>Unisex fit, screen-printed HBD Driven graphic across the back, small crest on the sleeve. The shirt you'll
-            actually train in.</p>
+          <div class="tagname">Kosher Supplements</div>
+          <h3>Nutrabio® Performance Support</h3>
+          <p>Premium formula support for training, recovery, and everyday performance — now available as a
+            kosher-certified supplement choice for members who want clean, trusted nutrition support.</p>
           <div class="price-row">
-            <div class="big-price">$33</div>
+            <div class="big-price">Kosher</div>
           </div>
           <div class="hero-cta">
-            <a href="#contact" class="btn btn-primary">Buy in-studio</a>
+            <a class="btn btn-primary" href="https://online-order.godaddy.com/store/hbd-rx-inc-sesag5g4" target="_blank"
+              rel="noopener noreferrer">Buy Supplements</a>
           </div>
         </div>
       </div>
@@ -2316,10 +2410,23 @@
 
   <!-- SUPPLEMENTS CTA -->
   <div id="supplements" class="cta-band">
-    <div class="wrap">
-      <h2>Fuel the work. Shop HBD supplements.</h2>
-      <a class="btn btn-primary" href="https://online-order.godaddy.com/store/hbd-rx-inc-sesag5g4" target="_blank"
-        rel="noopener noreferrer">Buy Supplements</a>
+    <div class="wrap supplements-panel">
+      <div class="supplements-copy">
+        <h2>Fuel the work. Shop HBD supplements.</h2>
+        <p>High-performance support for strength, recovery, and consistency — built for athletes who take training
+          seriously.</p>
+        <a class="btn btn-primary" href="https://online-order.godaddy.com/store/hbd-rx-inc-sesag5g4" target="_blank"
+          rel="noopener noreferrer">Buy Supplements</a>
+      </div>
+
+      <div class="supplements-ad" aria-label="Kosher supplement advertisement">
+        <img src="images/Nutrabio.jpg" alt="Nutrabio supplement product">
+        <div class="supplements-ad-copy">
+          <div class="mini-tag">Kosher</div>
+          <h3>Nutrabio® Performance Support</h3>
+          <p>Premium formula support for training, recovery, and everyday performance.</p>
+        </div>
+      </div>
     </div>
   </div>
 
