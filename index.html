@@ -600,6 +600,37 @@
       text-transform: uppercase;
     }
 
+    .muay-video {
+      position: relative;
+      margin: 18px 0 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+
+    .muay-video video {
+      display: block;
+      width: 100%;
+      max-height: 720px;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .muay-video-label {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      z-index: 1;
+      padding: 9px 13px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: 'Anton', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
     /* ---------- PACKAGES ---------- */
     .includes {
       display: flex;
@@ -2156,6 +2187,14 @@
           <div class="muay-photo-label">Muay Thai with Tony</div>
         </div>
       </div>
+
+      <figure class="muay-video">
+        <div class="muay-video-label">Tony and Jake practicing</div>
+        <video controls playsinline preload="metadata" aria-label="Tony and Jake sparring during Muay Thai training">
+          <source src="images/Tony_Jake_sparring.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </figure>
     </div>
   </section>
 
