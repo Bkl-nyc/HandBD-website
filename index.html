@@ -535,6 +535,71 @@
       font-size: 28px;
     }
 
+    /* ---------- MUAY THAI ---------- */
+    .muay-grid {
+      display: grid;
+      grid-template-columns: 0.8fr 1.2fr;
+      gap: 1px;
+      align-items: stretch;
+      border: 1px solid var(--line);
+      background: var(--line);
+    }
+
+    .muay-copy {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px;
+      background: var(--ink);
+    }
+
+    .muay-copy .kicker {
+      margin-bottom: 16px;
+    }
+
+    .muay-copy h3 {
+      font-size: clamp(34px, 4vw, 54px);
+      margin-bottom: 20px;
+    }
+
+    .muay-copy p {
+      margin: 0;
+      color: var(--paper-dim);
+      font-size: 15px;
+      max-width: 42ch;
+    }
+
+    .muay-photo {
+      position: relative;
+      min-height: 560px;
+      overflow: hidden;
+      background: var(--ink-soft);
+    }
+
+    .muay-photo img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      filter: saturate(0.9) contrast(1.05);
+    }
+
+    .muay-photo-label {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      z-index: 1;
+      padding: 11px 16px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: 'Anton', sans-serif;
+      font-size: 15px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+
     /* ---------- PACKAGES ---------- */
     .includes {
       display: flex;
@@ -1734,6 +1799,14 @@
         min-height: 400px;
       }
 
+      .muay-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .muay-photo {
+        min-height: 520px;
+      }
+
       .pricing {
         grid-template-columns: 1fr 1fr;
       }
@@ -1838,6 +1911,14 @@
         min-height: 430px;
       }
 
+      .muay-copy {
+        padding: 34px 26px;
+      }
+
+      .muay-photo {
+        min-height: 430px;
+      }
+
       .row2 {
         grid-template-columns: 1fr;
       }
@@ -1875,6 +1956,7 @@
       <nav class="links">
         <a href="#training">Training</a>
         <a href="#strength-training">Strength Training</a>
+        <a href="#muay-thai">Muay Thai</a>
         <div class="nav-item">
           <button type="button" class="nav-caret" aria-expanded="false">Trainers</button>
           <div class="dropdown">
@@ -2046,6 +2128,33 @@
             <h3>Captain Rohan</h3>
           </figcaption>
         </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- MUAY THAI -->
+  <section class="alt" id="muay-thai">
+    <div class="wrap">
+      <div class="sec-head">
+        <div>
+          <div class="sec-num">Muay Thai</div>
+          <h2>Muay Thai</h2>
+        </div>
+        <p>Build striking technique, conditioning, coordination, and confidence through focused Muay Thai coaching.</p>
+      </div>
+
+      <div class="muay-grid">
+        <div class="muay-copy">
+          <div class="kicker">Technique · Conditioning · Focus</div>
+          <h3>Sharper strikes.<br>Stronger movement.</h3>
+          <p>Tony guides every session with hands-on instruction, helping clients develop sound fundamentals, better
+            footwork, and fight-ready conditioning at their own pace.</p>
+        </div>
+        <div class="muay-photo">
+          <img src="images/muay_thai_with_tony.jfif" alt="Tony coaching Muay Thai at Health and Body Dynamics"
+            loading="lazy">
+          <div class="muay-photo-label">Muay Thai with Tony</div>
+        </div>
       </div>
     </div>
   </section>
