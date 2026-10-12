@@ -771,6 +771,43 @@
       margin-top: 34px;
     }
 
+    .stretch-videos {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+      margin-top: 30px;
+    }
+
+    .stretch-video {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: #000;
+    }
+
+    .stretch-video video {
+      display: block;
+      width: 100%;
+      max-height: 720px;
+      background: #000;
+      object-fit: contain;
+    }
+
+    .stretch-video-label {
+      position: absolute;
+      top: 14px;
+      left: 14px;
+      z-index: 1;
+      padding: 8px 11px;
+      background: var(--lime);
+      color: var(--ink);
+      font-family: 'Anton', sans-serif;
+      font-size: 14px;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+      pointer-events: none;
+    }
+
     /* ---------- SHOP ---------- */
     .shop-card {
       display: grid;
@@ -1855,6 +1892,10 @@
         order: -1;
       }
 
+      .stretch-videos {
+        grid-template-columns: 1fr;
+      }
+
       .shop-card {
         grid-template-columns: 1fr;
       }
@@ -2191,7 +2232,7 @@
       <figure class="muay-video">
         <div class="muay-video-label">Tony and Jake practicing</div>
         <video controls playsinline preload="metadata" aria-label="Tony and Jake sparring during Muay Thai training">
-          <source src="images/Tony_Jake_sparring.mp4" type="video/mp4">
+          <source src="images/Tony_Jake_muay_thai_web.mp4" type="video/mp4">
           Your browser does not support embedded video.
         </video>
       </figure>
@@ -2267,6 +2308,24 @@
         <img src="images/stretch-1.jpeg" alt="HBD coach performing myofascial release on a client's lower back">
         <img class="p2" src="images/stretch-2.jpeg" alt="HBD coach using percussion therapy during a mobility session">
       </div>
+    </div>
+
+    <div class="wrap stretch-videos">
+      <figure class="stretch-video">
+        <div class="stretch-video-label">Rohan stretching Dave</div>
+        <video controls playsinline preload="metadata" aria-label="Rohan stretching Dave during a mobility session">
+          <source src="images/Rohan_stretching_Dave_web.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </figure>
+
+      <figure class="stretch-video">
+        <div class="stretch-video-label">Rohan massaging Dave</div>
+        <video controls playsinline preload="metadata" aria-label="Rohan massaging Dave during a recovery session">
+          <source src="images/Rohan_massaging_Dave_web.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </figure>
     </div>
   </section>
 
